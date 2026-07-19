@@ -7,11 +7,23 @@
     "dev:api": "pnpm --filter @nardestan/api dev",
     "build": "pnpm --filter @nardestan/web build && pnpm --filter @nardestan/api build",
     "typecheck": "pnpm -r run typecheck",
-    "lint": "pnpm -r run lint",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "test": "pnpm -r --if-present run test",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.64.0"
   }
 }

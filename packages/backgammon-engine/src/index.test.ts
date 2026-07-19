@@ -5,8 +5,7 @@ import {
   createInitialGameState,
   getLegalMoves,
   type DiceRoll,
-  type GameState,
-  type PlayerColor
+  type GameState
 } from './index';
 
 const makeRoll = (first: number, second: number): DiceRoll => ({
@@ -15,8 +14,11 @@ const makeRoll = (first: number, second: number): DiceRoll => ({
   isDouble: first === second
 });
 
-const getMove = (moves: ReturnType<typeof getLegalMoves>, from: number | 'bar', to: number | 'off') =>
-  moves.find((move) => move.from === from && move.to === to);
+const getMove = (
+  moves: ReturnType<typeof getLegalMoves>,
+  from: number | 'bar',
+  to: number | 'off'
+) => moves.find((move) => move.from === from && move.to === to);
 
 test('initial board setup uses the standard starting positions', () => {
   const state = createInitialGameState();

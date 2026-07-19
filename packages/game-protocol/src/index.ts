@@ -1,1 +1,1 @@
-export const protocolStatus = 'planned';
+export { healthResponseSchema, type HealthResponse } from './health';

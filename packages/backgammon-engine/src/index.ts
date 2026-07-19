@@ -110,7 +110,11 @@ export const createInitialGameState = (): GameState => {
 
 const getDirection = (color: PlayerColor): 1 | -1 => (color === 'white' ? -1 : 1);
 
-const getDestinationPoint = (from: PointIndex, color: PlayerColor, dieValue: number): PointIndex => {
+const getDestinationPoint = (
+  from: PointIndex,
+  color: PlayerColor,
+  dieValue: number
+): PointIndex => {
   const direction = getDirection(color);
   return from + direction * dieValue;
 };
@@ -125,9 +129,15 @@ const getPointCheckers = (board: BoardState, pointIndex: PointIndex): CheckerSta
   return board.points[pointIndex] ?? [];
 };
 
-export const getLegalMoves = (state: GameState, color: PlayerColor, dice: DiceRoll): LegalMove[] => {
+export const getLegalMoves = (
+  state: GameState,
+  color: PlayerColor,
+  dice: DiceRoll
+): LegalMove[] => {
   const moves: LegalMove[] = [];
-  const availableDice = [dice.first, dice.second].filter((value, index, values) => values.indexOf(value) === index);
+  const availableDice = [dice.first, dice.second].filter(
+    (value, index, values) => values.indexOf(value) === index
+  );
 
   const addMove = (from: PointIndex, dieValue: number): void => {
     const target = getDestinationPoint(from, color, dieValue);
@@ -238,7 +248,8 @@ export const applyMove = (state: GameState, move: Move): MoveResult => {
   }
 
   const destinationPoint = board.points[target];
-  const destinationOccupiedByOpponent = destinationPoint.length === 1 && destinationPoint[0].color !== color;
+  const destinationOccupiedByOpponent =
+    destinationPoint.length === 1 && destinationPoint[0].color !== color;
   if (destinationPoint.length > 1 && destinationPoint[0].color !== color) {
     return { legal: false, message: 'Destination point is blocked.', nextState: state };
   }

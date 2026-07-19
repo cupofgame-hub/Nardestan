@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc -b --pretty false",
-    "lint": "echo 'No lint config yet'"
+    "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {
     "react": "^18.3.1",
