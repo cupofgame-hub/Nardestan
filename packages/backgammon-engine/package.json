@@ -6,7 +6,6 @@
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "lint": "echo 'No lint config yet'",
     "test": "node --test --import tsx src/index.test.ts"
   },
   "devDependencies": {
