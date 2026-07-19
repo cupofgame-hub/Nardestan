@@ -1,0 +1,15 @@
+{
+  "name": "nardestan-monorepo",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev:web": "pnpm --filter @nardestan/web dev",
+    "dev:api": "pnpm --filter @nardestan/api dev",
+    "build": "pnpm --filter @nardestan/web build && pnpm --filter @nardestan/api build",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "pnpm -r run lint"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
